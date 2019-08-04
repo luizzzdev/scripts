@@ -1,3 +1,9 @@
+FILE=$(file)
+FOLDER=
+
+export FILE
+export FOLDER
+
 case_sensitive:
 	sh case_insensitive.sh
 
@@ -5,16 +11,13 @@ docker:
 	sh docker.sh
 
 copy-folder:
-	sudo cp -r $(file) $(folder) 
+	sudo cp -r $(FILE) ${FOLDER} 
 
-icon: copy-folder file=$(file) folder=/usr/share/icons/
+icon: $(eval FOLDER := $(shell echo "/usr/share/icons/")) | copy-folder
 
-cursor: icon file=$(file)
+cursor: icon
 
-theme: copy-folder file=$(file) folder=/usr/share/themes/
+theme: $(eval FOLDER := $(shell echo "/usr/share/themes/")) | copy-folder
 
 plank-theme:
 	echo "not implemented"
-
-rename:
-	mv $(file) renamed.md
