@@ -1,5 +1,5 @@
 #!/bin/bash
-DESTINATION_FOLDER=/media/luiz/6197-2B95/
+DESTINATION_FOLDER=
 
 cd $HOME
 
