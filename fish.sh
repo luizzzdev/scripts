@@ -4,3 +4,4 @@ sudo apt-get update -y
 sudo apt-get install -y fish
 chsh -s $(which fish)
 curl -L https://get.oh-my.fish | fish
+omf install krisleech
